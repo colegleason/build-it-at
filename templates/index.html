@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">random</a></li>
+        <li><a href="/compose">new</a></li>
+        <li><a href="{{ url }}">{{ url_linktext }}</a></li>
+      </ul>
+    </nav>
+    {% for idea in ideas %}
+      <blockquote>{{ idea.content }}</blockquote>
+      <span class="idea-author">
+        {% if idea.author %}
+        {{ idea.author.nickname() }}
+        {% else %}
+        Anonymous
+        {% endif %}
+      </span>
+    {% endfor %}
+  </body>
+</html>
+{% endautoescape %}
